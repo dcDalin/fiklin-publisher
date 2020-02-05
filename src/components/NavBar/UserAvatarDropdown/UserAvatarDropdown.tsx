@@ -8,11 +8,12 @@ import styles from './DropDown.module.scss';
 
 const UserAvatarDropdown: React.FC = () => {
   const { user } = useContext(AuthContext);
-  const { username, displayName }: any = user;
+  console.log('User is: ', user);
+  const { companyName }: any = user;
   return (
     <Dropdown trigger={<DropDownTrigger />} className={styles.dropDown}>
       <Dropdown.Menu direction="left" className={styles.dropDownMenu}>
-        <Dropdown.Header content={username ? username : displayName} />
+        <Dropdown.Header content={companyName} />
         <Dropdown.Divider />
         <Dropdown.Item text="Log Out" as={Link} to={routes.LOGOUT} className={styles.dropDownMenuItem} />
       </Dropdown.Menu>

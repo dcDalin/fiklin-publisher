@@ -4,7 +4,6 @@ import {
   CLOSE_LOGIN_MODAL,
   OPEN_SIGNUP_MODAL,
   CLOSE_SIGNUP_MODAL,
-  OPEN_CHOOSE_SIGNUP_MODAL,
   CLOSE_CHOOSE_SIGNUP_MODAL,
 } from './types';
 
@@ -23,13 +22,6 @@ export default (state: any, { type }: any): any => {
         isLoginOpen: false,
         isSignUpOpen: true,
         isChooseSignUpOpen: false,
-      };
-    case OPEN_CHOOSE_SIGNUP_MODAL:
-      return {
-        ...state,
-        isLoginOpen: false,
-        isSignUpOpen: false,
-        isChooseSignUpOpen: true,
       };
     case CLOSE_LOGIN_MODAL:
     case CLOSE_SIGNUP_MODAL:

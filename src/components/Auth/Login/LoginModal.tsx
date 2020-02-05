@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useContext } from 'react';
-import { Divider, Button, Form, Icon, Modal, Message } from 'semantic-ui-react';
+import { Divider, Button, Form, Modal, Message } from 'semantic-ui-react';
 import { withRouter, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { History } from 'history';
@@ -23,7 +23,7 @@ type FormData = {
 const LoginModal: React.FC<Props> = (props: Props) => {
   // Get context stuff
   const { setToken, isAuthenticated } = useContext(AuthContext);
-  const { openLoginModal, closeLoginModal, isLoginOpen, openChooseSignupModal } = useContext(AuthModalContext);
+  const { openLoginModal, closeLoginModal, isLoginOpen, openSignUpModal } = useContext(AuthModalContext);
 
   // use form stuff
   const { register, handleSubmit, errors, setValue, triggerValidation } = useForm<FormData>();
@@ -54,9 +54,10 @@ const LoginModal: React.FC<Props> = (props: Props) => {
   const [genErr, setGenErr] = useState();
   const [visible, setVisible] = useState(false);
 
-  const [loginUser, { loading }] = useMutation(SIGN_IN, {
+  const [loginPublisher, { loading }] = useMutation(SIGN_IN, {
     update(_, { data }) {
-      setToken(data.userSignIn.token);
+      setToken(data.publisherSignIn.token);
+      console.log('************* token set');
       props.history.push('/');
     },
     onError(err) {
@@ -66,7 +67,7 @@ const LoginModal: React.FC<Props> = (props: Props) => {
   });
 
   const onSubmit = handleSubmit(({ email, password }) => {
-    loginUser({
+    loginPublisher({
       variables: {
         email,
         password,
@@ -97,26 +98,9 @@ const LoginModal: React.FC<Props> = (props: Props) => {
         className={styles.customCard}
       >
         <Modal.Content>
-          <h3 className={styles.customFormTitle}>Login to Fiklin</h3>
-          <Button
-            className={`${styles.customSuccessButton} ${styles.facebookColor}`}
-            style={{ marginBottom: '10px' }}
-            onClick={(): any => window.open(`${process.env.REACT_APP_FIKLIN_URL}/auth/facebook`, '_self')}
-          >
-            <Icon name="facebook" />
-            Login with Facebook
-          </Button>
-
-          <Button
-            className={`${styles.customSuccessButton} ${styles.googleColor}`}
-            onClick={(): any => window.open(`${process.env.REACT_APP_FIKLIN_URL}/auth/google`, '_self')}
-          >
-            <Icon name="google" />
-            Login with Google
-          </Button>
+          <h3 className={styles.customFormTitle}>Login to Fiklin Publisher</h3>
         </Modal.Content>
         <Modal.Content style={{ textAlign: 'center' }}>
-          <p>or</p>
           {genErr && visible ? <Message error header="Sorry" content={genErr} onDismiss={handleDismiss} /> : null}
 
           <Form loading={loading} className={styles.customForm} noValidate onSubmit={onSubmit}>
@@ -170,7 +154,7 @@ const LoginModal: React.FC<Props> = (props: Props) => {
 
           <p>
             Do not have an account?
-            <Button onClick={openChooseSignupModal} className={styles.customLinkButton}>
+            <Button onClick={openSignUpModal} className={styles.customLinkButton}>
               &nbsp;Sign up today.
             </Button>
           </p>

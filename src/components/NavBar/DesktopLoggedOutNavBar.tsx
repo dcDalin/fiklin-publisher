@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Responsive, Menu, Container } from 'semantic-ui-react';
+import { Responsive, Menu } from 'semantic-ui-react';
 import getWidth from '../../utils/getWidth';
 import ActiveNavContext from '../../context/ActiveNavContext/activeNavContext';
 import * as routes from '../../Routes';
@@ -26,29 +26,16 @@ const DesktopLoggedOutNavBar: React.FC<Props> = (props: Props) => {
         <Menu.Item position="right">
           <Menu.Item
             as={Link}
-            to={routes.TOURS}
-            name="tours"
+            to={routes.FAQ}
+            name="faq"
             className={
-              activeItem === 'tours'
+              activeItem === 'faq'
                 ? `${styles.menuItem} ${styles.menuItemItem} ${styles.active}`
                 : `${styles.menuItem} ${styles.menuItemItem}`
             }
             onClick={handleItemClick}
           >
-            Tours
-          </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to={routes.TICKE_RESALE}
-            name="ticket-resale"
-            className={
-              activeItem === 'ticket-resale'
-                ? `${styles.menuItem} ${styles.menuItemItem} ${styles.active}`
-                : `${styles.menuItem} ${styles.menuItemItem}`
-            }
-            onClick={handleItemClick}
-          >
-            Ticket Resale
+            FAQ
           </Menu.Item>
           <Menu.Item className={styles.menuItem}>
             <LoginModal />

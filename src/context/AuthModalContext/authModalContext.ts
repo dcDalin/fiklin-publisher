@@ -9,7 +9,6 @@ const AuthContext = createContext({
   closeLoginModal: () => {},
   openSignUpModal: () => {},
   closeSignUpModal: () => {},
-  openChooseSignupModal: () => {},
   closeChooseSignUpModal: () => {},
 });
 
