@@ -26,30 +26,18 @@ const DesktopLoggedOutNavBar: React.FC<Props> = (props: Props) => {
         <Menu.Item position="right">
           <Menu.Item
             as={Link}
-            to={routes.TOURS}
-            name="tours"
+            to={routes.FAQ}
+            name="faq"
             className={
-              activeItem === 'tours'
+              activeItem === 'faq'
                 ? `${styles.menuItem} ${styles.menuItemItem} ${styles.active}`
                 : `${styles.menuItem} ${styles.menuItemItem}`
             }
             onClick={handleItemClick}
           >
-            Tours
+            FAQ
           </Menu.Item>
-          <Menu.Item
-            as={Link}
-            to={routes.TICKE_RESALE}
-            name="ticket-resale"
-            className={
-              activeItem === 'ticket-resale'
-                ? `${styles.menuItem} ${styles.menuItemItem} ${styles.active}`
-                : `${styles.menuItem} ${styles.menuItemItem}`
-            }
-            onClick={handleItemClick}
-          >
-            Ticket Resale
-          </Menu.Item>
+
           <Menu.Item className={styles.menuItem}>
             <UserAvatarDropdown />
           </Menu.Item>
