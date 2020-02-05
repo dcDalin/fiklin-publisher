@@ -31,7 +31,6 @@ const MobileLoggedInNavBar: React.FC<Props> = (props: Props) => {
         </Menu>
         <div style={{ marginTop: '40px' }}>{children}</div>
       </Responsive>
-      <MobileFooterNav />
     </>
   );
 };

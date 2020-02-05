@@ -8,7 +8,7 @@ import styles from './DropDown.module.scss';
 
 const UserAvatarDropdown: React.FC = () => {
   const { user } = useContext(AuthContext);
-  console.log('User is: ', user);
+
   const { companyName }: any = user;
   return (
     <Dropdown trigger={<DropDownTrigger />} className={styles.dropDown}>
