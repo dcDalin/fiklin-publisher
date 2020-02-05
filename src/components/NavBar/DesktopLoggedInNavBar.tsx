@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Responsive, Menu, Container } from 'semantic-ui-react';
+import { Responsive, Menu } from 'semantic-ui-react';
 import getWidth from '../../utils/getWidth';
 import * as routes from '../../Routes';
 import ActiveNavContext from '../../context/ActiveNavContext/activeNavContext';

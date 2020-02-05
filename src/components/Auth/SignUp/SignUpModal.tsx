@@ -51,7 +51,7 @@ const SignUpFormModal: React.FC = () => {
 
   const [addUser, { loading }] = useMutation(SIGN_UP, {
     update(_, { data }) {
-      setToken(data.userSignUp.token);
+      setToken(data.publisherSignUp.token);
     },
     onError(err) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

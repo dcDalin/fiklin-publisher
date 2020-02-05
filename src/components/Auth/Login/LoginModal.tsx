@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useContext } from 'react';
-import { Divider, Button, Form, Icon, Modal, Message } from 'semantic-ui-react';
+import { Divider, Button, Form, Modal, Message } from 'semantic-ui-react';
 import { withRouter, Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { History } from 'history';
@@ -54,9 +54,10 @@ const LoginModal: React.FC<Props> = (props: Props) => {
   const [genErr, setGenErr] = useState();
   const [visible, setVisible] = useState(false);
 
-  const [loginUser, { loading }] = useMutation(SIGN_IN, {
+  const [loginPublisher, { loading }] = useMutation(SIGN_IN, {
     update(_, { data }) {
-      setToken(data.userSignIn.token);
+      setToken(data.publisherSignIn.token);
+      console.log('************* token set');
       props.history.push('/');
     },
     onError(err) {
@@ -66,7 +67,7 @@ const LoginModal: React.FC<Props> = (props: Props) => {
   });
 
   const onSubmit = handleSubmit(({ email, password }) => {
-    loginUser({
+    loginPublisher({
       variables: {
         email,
         password,

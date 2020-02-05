@@ -1,11 +1,11 @@
 import gql from 'graphql-tag';
 
 const WHO_IS_ME = gql`
-  query whoIsMe {
-    me {
+  query PublisherMe {
+    publisherMe {
       id
-      username
-      displayName
+      companyName
+      bio
       email {
         emailAddress
         isVerified
@@ -19,23 +19,9 @@ const WHO_IS_ME = gql`
           phoneNumber
           isVerified
         }
-        accountType
       }
     }
   }
 `;
 
-const LOAD_USER = gql`
-  query whoIsMe {
-    me {
-      id
-      username
-      displayName
-      profile {
-        accountType
-      }
-    }
-  }
-`;
-
-export { WHO_IS_ME, LOAD_USER };
+export { WHO_IS_ME };

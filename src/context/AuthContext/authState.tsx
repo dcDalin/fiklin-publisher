@@ -44,7 +44,7 @@ const AuthState: React.FC = (props: AuthStateProps) => {
       const res = await client.query({ query: WHO_IS_ME });
       dispatch({
         type: USER_LOADED,
-        payload: res.data.me,
+        payload: res.data.publisherMe,
         loadPayload: res.loading,
       });
     } catch (err) {
@@ -57,9 +57,7 @@ const AuthState: React.FC = (props: AuthStateProps) => {
   // Set OAuth Token
   function setToken(token: string): any {
     // eslint-disable-next-line no-undef
-    console.log('Token is: ', token);
     localStorage.setItem(jwtTitle, token);
-    console.log('Token is set: ', token);
     dispatch({
       type: SET_TOKEN,
     });
