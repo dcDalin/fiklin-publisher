@@ -1,0 +1,25 @@
+@import '../../../scss/headers.scss';
+@import '../../../scss/form.scss';
+
+.pPic {
+  height: 150px !important;
+  width: 150px !important;
+}
+
+.pPicWrapper {
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.cropper {
+  border: 2px solid red !important;
+
+  left: 0px !important;
+  top: 0px !important;
+  width: 100% !important;
+  -moz-background-size: 100% auto !important;
+  -webkit-background-size: 100% auto !important;
+  background-size: 100% auto !important;
+}
