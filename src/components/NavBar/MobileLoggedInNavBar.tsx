@@ -4,8 +4,6 @@ import { Responsive, Menu, Icon } from 'semantic-ui-react';
 import getWidth from '../../utils/getWidth';
 import ActiveNavContext from '../../context/ActiveNavContext/activeNavContext';
 import * as routes from '../../Routes';
-import MobileFooterNav from './MobileFooterNav';
-import UserAvatarDropdown from './UserAvatarDropdown';
 import styles from './NavBar.module.scss';
 
 export interface Props {
@@ -14,7 +12,7 @@ export interface Props {
 
 const MobileLoggedInNavBar: React.FC<Props> = (props: Props) => {
   const { children } = props;
-  const { activeItem, handleItemClick }: any = useContext(ActiveNavContext);
+  const { activeItem, handleItemClick, visible, toggleVisible }: any = useContext(ActiveNavContext);
 
   return (
     <>
@@ -24,8 +22,12 @@ const MobileLoggedInNavBar: React.FC<Props> = (props: Props) => {
             <span className={styles.logoText}>Fiklin</span>
           </Menu.Item>
           <Menu.Item position="right" className={styles.menuItem}>
-            <Menu.Item className={styles.menuItem} style={{ paddingRight: '0px', paddingLeft: '0px' }}>
-              <UserAvatarDropdown />
+            <Menu.Item
+              className={styles.menuItem}
+              onClick={toggleVisible}
+              style={{ paddingRight: '0px', paddingLeft: '0px' }}
+            >
+              <Icon name={visible ? 'close' : 'bars'} size="large" style={{ margin: 'auto' }} />
             </Menu.Item>
           </Menu.Item>
         </Menu>

@@ -1,0 +1,101 @@
+@import '../../scss/variables.scss';
+@import url('https://fonts.googleapis.com/css?family=Gayathri:400,700&display=swap');
+
+.sideWrapper {
+  border: 0px !important;
+  border-radius: 0px !important;
+  min-height: 100vh !important;
+  position: fixed !important;
+  font-family: 'Gayathri', sans-serif !important;
+  font-size: small !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  background-color: rgba($border, 0.4) !important;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+
+.sideMenu {
+  font-weight: 700 !important;
+  color: rgba($lightBlack, 0.7) !important;
+  font-size: 10px !important;
+  padding-top: 20px !important;
+  padding-bottom: 5px !important;
+  border-bottom: 2px solid rgba($lightBlack, 0.1) !important;
+}
+
+.menuItem {
+  color: $lightBlack !important;
+  border-left: 5px solid transparent !important;
+  .icon {
+    color: rgba($lightBlack, 0.5) !important;
+  }
+  .text {
+    color: $lightBlack !important;
+    font-weight: 700 !important;
+  }
+
+  &:hover {
+    border-left: 5px solid rgba($lightBlack, 0.7) !important;
+    background-color: rgba($lightBlack, 0.05) !important;
+    cursor: pointer !important;
+  }
+}
+
+.active {
+  color: $pink !important;
+  border-left: 5px solid transparent !important;
+  border-left: 5px solid $pink !important;
+  background-color: none !important;
+  .icon {
+    color: $pink !important;
+  }
+  .text {
+    color: $pink !important;
+    font-weight: 700 !important;
+  }
+
+  &:hover {
+    border-left: 5px solid $pink !important;
+    background-color: transparent !important;
+    cursor: auto !important;
+  }
+}
+
+.menuItemItem {
+  transition: linear !important;
+  color: $primary-color !important;
+  &:hover {
+    border-bottom: 2px solid $pink !important;
+  }
+}
+
+.mobileDashContent {
+  min-height: 100vh !important;
+  padding-bottom: 100px !important;
+}
+
+.mobileMenu {
+  width: 100% !important;
+  border: 0px !important;
+  min-height: 100vh !important;
+}
+
+.mobileSideBar {
+}
+
+.mobileSideBar::-webkit-scrollbar {
+  width: 0.25em !important;
+}
+
+.mobileSideBar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba($pink, 0.1);
+}
+
+.mobileSideBar::-webkit-scrollbar-thumb {
+  outline: none !important;
+}
+
+.mobileMenuNoScroll {
+  overflow: hidden !important;
+}

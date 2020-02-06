@@ -6,6 +6,8 @@ import FAQ from '../pages/FAQ';
 import LogOut from '../components/Auth/LogOut';
 import styles from './Routes.module.scss';
 import ScrollToTop from './ScrollToTop';
+import NotFound from '../pages/NotFound';
+import Dashboard from '../pages/Dashboard';
 
 const Routes: React.FC = () => {
   return (
@@ -20,6 +22,12 @@ const Routes: React.FC = () => {
         </Route>
         <Route exact path={routes.HOME}>
           <Home />
+        </Route>
+        <Route path={routes.DASHBOARD}>
+          <Dashboard />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </div>

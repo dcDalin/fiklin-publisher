@@ -1,0 +1,13 @@
+@import '../../../../scss/variables.scss';
+
+.header {
+  font-family: 'Open+Sans', sans-serif !important;
+  font-size: 3em !important;
+  font-weight: 100 !important;
+  color: $purple !important;
+  padding-top: 1em !important;
+  i {
+    font-size: 1em !important;
+    opacity: 0.8 !important;
+  }
+}
