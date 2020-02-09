@@ -1,9 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { useForm } from 'react-hook-form';
+// @ts-ignore
+import CKEditor from '@ckeditor/ckeditor5-react';
+// @ts-ignore
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import styles from '../Tours.module.scss';
 import TourFormHeader from './TourFormHeader';
-import { DefaultEditor } from 'react-simple-wysiwyg';
 
 interface Props {
   nextStep: () => {};
@@ -27,8 +31,9 @@ const TourDescription: React.FC<Props> = (props: Props) => {
     setTourNewInput({ ...tourNewInput, shortDescription: event.target.value });
   };
 
-  const onChange = (event: any): any => {
-    setTourNewInput({ ...tourNewInput, longDescription: event.target.value });
+  const onChange = (_event: any, editor: any): any => {
+    const data = editor.getData();
+    setTourNewInput({ ...tourNewInput, longDescription: data });
   };
 
   const onSubmit = handleSubmit(({ shortDescription }) => {
@@ -65,15 +70,15 @@ const TourDescription: React.FC<Props> = (props: Props) => {
         </Form.Field>
         <Form.Field>
           <label>Long Description</label>
-          <div className={styles.moreInfo}>
-            <DefaultEditor value={longDescription} onChange={onChange} />
+          <div className={styles.ckEditorWrapper}>
+            <CKEditor editor={ClassicEditor} onChange={onChange} data={longDescription} />
           </div>
         </Form.Field>
         <Form.Field>
           <Button circular basic onClick={prevStep}>
             Prev
           </Button>
-          <Button circular basic type="submit">
+          <Button circular basic type="submit" disabled={!!errors.shortDescription}>
             Next
           </Button>
         </Form.Field>

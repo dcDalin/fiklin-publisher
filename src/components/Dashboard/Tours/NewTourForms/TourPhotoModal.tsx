@@ -128,7 +128,7 @@ const UpdateProfilePicModal: React.FC<Props> = ({ tourNewInput, setTourNewInput 
             <input {...getInputProps()} accept="image/png, image/jpeg" />
             <Button basic color="black">
               <Icon name="photo" />
-              Upload New Profile Picture
+              Upload New Tour Picture
             </Button>
           </div>
           {src && (
