@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import * as routes from '../Routes';
 import Home from '../pages/Home';
@@ -8,24 +8,24 @@ import styles from './Routes.module.scss';
 import ScrollToTop from './ScrollToTop';
 import NotFound from '../pages/NotFound';
 import Dashboard from '../pages/Dashboard';
+import AuthContext from '../context/AuthContext/authContext';
+import AuthRoute from '../Routes/AuthRoute';
+import ProtectedRoute from '../Routes/ProtectedRoute';
 
 const Routes: React.FC = () => {
+  const { isAuthenticated } = useContext(AuthContext);
+
+  console.log('isAuthenticated is: ', isAuthenticated);
   return (
     <div className={styles.rootBody}>
       <ScrollToTop />
       <Switch>
-        <Route path={routes.FAQ}>
-          <FAQ />
-        </Route>
+        <ProtectedRoute path={routes.FAQ} component={FAQ} isAuthenticated={isAuthenticated} />
         <Route path={routes.LOGOUT}>
           <LogOut />
         </Route>
-        <Route exact path={routes.HOME}>
-          <Home />
-        </Route>
-        <Route path={routes.DASHBOARD}>
-          <Dashboard />
-        </Route>
+        <AuthRoute exact path={routes.HOME} component={Home} isAuthenticated={isAuthenticated} />
+        <ProtectedRoute path={routes.DASHBOARD} component={Dashboard} isAuthenticated={isAuthenticated} />
         <Route path="*">
           <NotFound />
         </Route>

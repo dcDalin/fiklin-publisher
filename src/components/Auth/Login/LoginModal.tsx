@@ -57,8 +57,7 @@ const LoginModal: React.FC<Props> = (props: Props) => {
   const [loginPublisher, { loading }] = useMutation(SIGN_IN, {
     update(_, { data }) {
       setToken(data.publisherSignIn.token);
-      console.log('************* token set');
-      props.history.push('/');
+      props.history.push('/dashboard');
     },
     onError(err) {
       setGenErr(err.graphQLErrors[0].message);
